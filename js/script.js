@@ -260,6 +260,35 @@ jQuery(function ($) {
 		mediaPopup();
 
 	});
+	
 
 
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener todos los enlaces de la barra de menú
+    var links = document.querySelectorAll(".service-menu a");
+
+    // Iterar sobre cada enlace y agregar un controlador de evento de clic
+    links.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+            // Ocultar todos los contenidos
+            document.querySelectorAll(".content-inner-page").forEach(function(content) {
+                content.classList.remove("active"); // Remover la clase "active"
+            });
+
+            // Obtener el identificador del destino del enlace
+            var targetId = this.getAttribute("href").slice(1);
+
+            // Obtener el elemento destino
+            var targetElement = document.getElementById(targetId);
+
+            // Mostrar el contenido correspondiente
+            if (targetElement) {
+                targetElement.classList.add("active"); // Agregar la clase "active"
+            }
+        });
+    });
 });

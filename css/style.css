@@ -236,6 +236,13 @@ a:focus {
   border: 0;
   overflow: hidden;
 }
+/* Asegurarse de que solo el contenido activo se muestra */
+.content-inner-page {
+  display: none;
+}
+.content-inner-page.active {
+  display: block;
+}
 
 /* Dropcap */
 .dropcap {
