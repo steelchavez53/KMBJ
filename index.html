@@ -40,58 +40,28 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+  
 
 </head>
 <body>
   <div class="body-inner">
-
-    <div id="top-bar" class="top-bar">
-        <div class="container">
-          <div class="row">
-              <div class="col-lg-8 col-md-8">
-                <ul class="top-info text-center text-md-left">
-                    <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">12929 Telegraph Rd Unit I, Santa Fe Springs, CA 90670</p>
-                    </li>
-                </ul>
-              </div>
-              <!--/ Top info end -->
-  
-              <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
-                <ul class="list-unstyled">
-                    <li>
-                      <a title="Facebook" href="#">
-                          <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                      </a>
-                      <a title="Twitter" href="#">
-                          <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                      </a>
-                      <a title="Instagram" href="#">
-                          <span class="social-icon"><i class="fab fa-instagram"></i></span>
-                      </a>
-                      <a title="Linkdin" href="#">
-                          <span class="social-icon"><i class="fab fa-github"></i></span>
-                      </a>
-                    </li>
-                </ul>
-              </div>
-              <!--/ Top social end -->
-          </div>
-          <!--/ Content row end -->
-        </div>
-        <!--/ Container end -->
-    </div>
-    <!--/ Topbar end -->
 <!-- Header start -->
 <header id="header" class="header-one">
+  
   <div class="bg-white">
+    
     <div class="container">
+      
       <div class="logo-area">
+      
           <div class="row align-items-center">
+            
             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                 <a class="d-block" href="index.html">
                   <img loading="lazy" src="images/KMBJ-LOGO.png" alt="Constra">
                 </a>
             </div><!-- logo end -->
+            
   
             <div class="col-lg-9 header-right">
                 <ul class="top-info-box">
@@ -121,9 +91,33 @@
   
       </div><!-- Row end -->
     </div><!-- Container end -->
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-4 top-social text-c text-md-right">
+              <ul class="list-unstyled">
+                  <li>
+                    <a title="Facebook" href="#">
+                        <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                    </a>
+                    <a title="Twitter" href="#">
+                        <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            <!--/ Top social end -->
+        </div>
+        <!--/ Content row end -->
+      </div>
+      <!--/ Container end -->
   </div>
+    
+  </div>
+  
+ 
 
-  <div class="site-navigation">
+  <div class="site-navigation" >
     <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -160,24 +154,66 @@
 
         <div class="nav-search">
           <span id="search"><i class="fa fa-search"></i></span>
+
         </div><!-- Search end -->
 
-        <div class="search-block" style="display: none;">
-          <label for="search-field" class="w-100 mb-0">
-            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-          </label>
-          <span class="search-close">&times;</span>
-        </div><!-- Site search end -->
+       <div class="search-block" style="display: none;">
+  <label for="search-field" class="w-100 mb-0">
+    <input type="text" class="form-control" id="searchInput" placeholder="Type what you want and enter">
+    <ul id="searchResults"></ul>
+  </label>
+  <span class="search-close">&times;</span>
+</div><!-- Site search end -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.trim().toLowerCase();
+      const allWords = document.body.innerText.split(/\s+/);
+      const filteredWords = allWords.filter(word => word.toLowerCase().includes(searchTerm));
+      const uniqueWords = [...new Set(filteredWords)];
+
+      searchResults.innerHTML = '';
+
+      uniqueWords.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        searchResults.appendChild(listItem);
+      });
+    });
+
+    // Add click event listener to the document body
+    document.body.addEventListener('click', function(event) {
+      // Check if the clicked element is an LI element within the search results
+      if (event.target.tagName === 'LI' && event.target.parentNode === searchResults) {
+        const word = event.target.textContent.trim();
+        const elements = document.querySelectorAll(`*:contains(${word}):not(script)`);
+        if (elements.length > 0) {
+          elements.forEach(element => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+      }
+    });
+  });
+</script>
+
+
+        
     </div>
     <!--/ Container end -->
 
   </div>
+  
   <!--/ Navigation end -->
 </header>
 <!--/ Header end -->
 
 <div class="banner-carousel banner-carousel-1 mb-0">
-  <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg1.jpg)">
+  <div class="banner-carousel-item" style="background-image:url(images/slider-main/imagen1.jpeg)">
     <div class="slider-content">
         <div class="container h-100">
           <div class="row align-items-center h-100">
@@ -194,7 +230,7 @@
     </div>
   </div>
 
-  <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg2.jpg)">
+  <div class="banner-carousel-item" style="background-image:url(images/slider-main/imagen2.jpeg)">
     <div class="slider-content text-left">
         <div class="container h-100">
           <div class="row align-items-center h-100">
@@ -211,7 +247,7 @@
     </div>
   </div>
 
-  <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg3.jpg)">
+  <div class="banner-carousel-item" style="background-image:url(images/slider-main/imagen3.jpeg)">
     <div class="slider-content text-right">
         <div class="container h-100">
           <div class="row align-items-center h-100">
@@ -329,6 +365,132 @@
   </div><!-- Container end -->
 </section><!-- Feature are end -->
 
+<section class="container">
+  
+  <div class="row">
+      <div class="col-md-6">
+          <h3>What We Do</h3>
+          <hr>
+          <p>Skylark Contracting LLC is a renowned building contractor based in Dubai, United Arab Emirates, operating since 2014. Holding a G+1 license of building contracting, we specialize in the construction of luxury villas, warehouses, turnkey fit-out works, and villa structural modifications. As registered contractors in Dubai Municipality, Trakhees, and Dubai Development Authority, we deliver exceptional craftsmanship and expertise. Trust us to bring your construction projects to life with professionalism and precision.</p>
+      </div>
+      <div class="col-md-6">
+          <img src="https://skylark.ae/wp-content/uploads/2020/07/3.jpg" class="img-fluid" alt="Image">
+      </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <img src="https://skylark.ae/wp-content/uploads/2020/07/4.jpg" class="img-fluid" alt="Image">
+      </div>
+      <div class="col-md-6">
+          <h3>Design & Build G+1</h3>
+          <hr>
+          <p>Experience our comprehensive design and build services, all conveniently available under one roof. Our offerings encompass every aspect, from understanding clients' requirements to preliminary design and scope definition, detailed engineering, obtaining necessary approvals from authorities, and overseeing construction until commissioning and testing. Trust us to handle the entire process seamlessly, ensuring your project is executed to perfection.</p>
+          <a href="https://www.scllc.ae/construction-cost-of-villa-estimator/" class="btn btn-primary">Quick Quote for Villa</a>
+      </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <h3>Contracting G+1</h3>
+          <hr>
+          <p>We provide contracting services for a wide range of projects, including villas, industrial buildings, and warehouses. Our expertise covers all aspects, from structural works to shell & core works, finishing works, and MEP (Mechanical, Electrical, and Plumbing) installations. We handle the entire process, ensuring compliance and obtaining building completion approvals from the relevant authorities. Count on us to deliver top-notch contracting services for your project, from start to finish.</p>
+      </div>
+      <div class="col-md-6">
+          <img src="https://skylark.ae/wp-content/uploads/2020/07/1.jpg" class="img-fluid" alt="Image">
+      </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <img src="https://skylark.ae/wp-content/uploads/2020/07/2.jpg" class="img-fluid" alt="Image">
+      </div>
+      <div class="col-md-6">
+          <h3>Modification Works</h3>
+          <hr>
+          <p>Experience our expertise in providing structural modifications and extensions for a variety of buildings, including villas, industrial buildings, and warehouses with G+1 structures. We handle the entire process, from design to implementation, ensuring compliance and obtaining necessary approvals from Dubai Municipality, Trakhees, and DDA (Dubai Development Authority). Trust us to deliver exceptional results and transform your space to meet your specific requirements while adhering to the highest standards set by the authorities.</p>
+      </div>
+  </div>
+</section>
+<br>
+<br>
+<!--Start section services-->
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+        <h2 class="">Our Activities</h2>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="image-container">
+                  <img src="images/service/servicess1.png" class="card-img-top" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Engineering Techniques & Implementation</h5>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="image-container">
+                  <img src="images/service/servicess2.png" class="card-img-top" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Engineering Techniques & Implementation</h5>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="image-container">
+                <img src="images/service/servicess3.png" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Engineering Techniques & Implementation</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+          <div class="image-container">
+              <img src="images/service/servicess4.png" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+              <h5 class="card-title">Engineering Techniques & Implementation</h5>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card mb-4">
+        <div class="image-container">
+            <img src="images/service/servicess5.png" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Engineering Techniques & Implementation</h5>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+  <div class="card mb-4">
+      <div class="image-container">
+          <img src="images/service/servicess6.png" class="card-img-top" alt="...">
+      </div>
+      <div class="card-body">
+          <h5 class="card-title">Engineering Techniques & Implementation</h5>
+      </div>
+  </div>
+</div>
+  </div>
+</div>
+<!-- Services Area End -->
 
 
 
@@ -404,6 +566,11 @@
       </div><!-- Container end -->
     </div><!-- Copyright end -->
   </footer><!-- Footer end -->
+
+<!-- Script para la búsqueda en tiempo real -->
+
+  
+
 
 
   <!-- Javascript Files

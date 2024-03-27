@@ -6,6 +6,19 @@ body {
   color: #555;
 }
 
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
 body,
 p {
   font-family: "Open Sans", sans-serif;
@@ -574,9 +587,10 @@ a[href^=tel] {
 /* Top Bar
 ================================================== */
 .top-bar {
-  padding: 8px 0;
-  background: #ebebeb;
+  padding: 1px 0;
+  background: #ffffff;
   position: relative;
+  margin: -25px 0px 0px 0px ;
 }
 
 /* Top info */
@@ -1540,7 +1554,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 }
 
 .call-to-action-box .action-style-box {
-  background: #ffb600;
+  background: #004c89;
   padding: 30px;
 }
 
