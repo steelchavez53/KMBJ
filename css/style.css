@@ -5,6 +5,54 @@ body {
   background: #fff;
   color: #555;
 }
+/* Estilos para el contenedor del input personalizado */
+.container-input {
+  position: relative;
+}
+
+/* Estilos para la etiqueta */
+.container-input label {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  color: #adacac;
+  background-color: white;
+  padding: 0 5px;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+/* Estilos para la entrada de texto */
+.container-input input[type="text"],
+.container-input input[type="email"],
+.container-input input[type="tel"] {
+  padding: 10px;
+  border: 1px solid #ced4da; /* Colores de borde Bootstrap */
+  border-radius: 5px;
+  transition: border-color 0.2s ease-in-out;
+  
+}
+
+/* Estilos para la entrada enfocada */
+.container-input input[type="text"]:focus,
+.container-input input[type="email"]:focus,
+.container-input input[type="tel"]:focus {
+  border-color: #ffb600; /* Color de borde enfocado personalizado */
+}
+
+/* Estilos para la etiqueta enfocada */
+.container-input input[type="text"]:focus + label,
+.container-input input[type="text"]:valid + label,
+.container-input input[type="email"]:focus + label,
+.container-input input[type="email"]:valid + label,
+.container-input input[type="tel"]:focus + label,
+.container-input input[type="tel"]:valid + label {
+  top: 0;
+  font-size: 12px;
+  color: rgb(0, 0, 0); /* Color de texto cuando está enfocado */
+}
+
 
 .image-container {
   overflow: hidden;

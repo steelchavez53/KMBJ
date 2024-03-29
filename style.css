@@ -1,0 +1,22 @@
+.container-input{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30vw;
+}
+
+label{
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    color:#d64a4a;
+    background-color: white;
+    padding: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+.container-input:focus-within label{
+    top: 0;
+    font-size: 12px;
+}

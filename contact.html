@@ -20,6 +20,7 @@
   <!-- CSS
 ================================================== -->
   <!-- Bootstrap -->
+
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- FontAwesome -->
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
@@ -235,60 +236,89 @@
             <div class="container py-4">
               <div class="row justify-content-center">
                 <div class="col-lg-12">
-                  <div class="card border-15 shadow-lg rounded p-5 " >
+                  <div class="card border-15 shadow-lg rounded p-5">
                     <div class="card-body">
                       <h2 class="card-title text-center mb-4">Contact Us</h2>
-                      <!--star form-->
+                      <!-- Formulario -->
                       <form action="procesar_formulario.php" method="post" enctype="multipart/form-data" id="script">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group mb-1">
-                              <input type="text" id="firstname" name="firstname" placeholder="First Name" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your first name')" oninput="setCustomValidity('')" class="form-control">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group mb-3">
-                              <input type="text" id="lastname" name="lastname" placeholder="Last Name" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your last name')" oninput="setCustomValidity('')" class="form-control">
-                            </div>
-                          </div>
+                        <!-- Primer Nombre -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="firstname" name="firstname" required pattern=".*\S+.*" class="form-control">
+                          <label for="firstname">First Name</label>
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="email" id="email" name="email" placeholder="Email" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your email')" oninput="setCustomValidity('')" class="form-control">
+                        <!-- Apellido -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="lastname" name="lastname" required pattern=".*\S+.*" class="form-control">
+                          <label for="lastname">Last Name</label>
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="tel" id="phone" name="phone" placeholder="Phone" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your phone number')" oninput="setCustomValidity('')" class="form-control">
+                        <!-- Email -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="email" id="email" name="email" required pattern=".*\S+.*" class="form-control">
+                          <label for="email">Email</label>
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="text" id="company" name="company" placeholder="Company" class="form-control">
+                        <!-- Teléfono -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="tel" id="phone" name="phone" required pattern=".*\S+.*" class="form-control">
+                          <label for="phone">Phone</label>
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="text" id="address1" name="address1" placeholder="Street Address" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your Street Address')" oninput="setCustomValidity('')" class="form-control">
+                        <!-- Compañía -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="company" name="company" required pattern=".*\S+.*" class="form-control">
+                          <label for="company">Company</label>
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="text" id="city" name="city" placeholder="City" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your City')" oninput="setCustomValidity('')" class="form-control">
+                        <!-- Dirección -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="address1" name="address1" required pattern=".*\S+.*" class="form-control">
+                          <label for="address1">Street Address</label>
                         </div>
-                        <div class="form-group mb-3">
+                        <!-- Ciudad -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="city" name="city" required pattern=".*\S+.*" class="form-control">
+                          <label for="city">City</label>
+                        </div>
+                        <!-- Estado/Provincia -->
+                        <div class="form-group mb-3 container-input">
                           <select id="stateprovince" name="stateprovince" class="form-control">
                             <option value="-1" selected> - Please Choose - </option>
                             <!-- Opciones de estado -->
                           </select>
+
                         </div>
-                        <div class="form-group mb-3">
-                          <input type="text" id="postal" name="postal" placeholder="Zip / Postal Code" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter your Zip/Postal Code')" oninput="setCustomValidity('')" class="form-control">
+                        <!-- Código Postal -->
+                        <div class="form-group mb-3 container-input">
+                          <input type="text" id="postal" name="postal" required pattern=".*\S+.*" class="form-control">
+                          <label for="postal">Zip / Postal Code</label>
                         </div>
+                        <!-- Comentarios -->
                         <div class="form-group mb-3">
                           <textarea id="message" name="message" rows="4" placeholder="Comments, questions, or details about your request" class="form-control"></textarea>
                         </div>
-                        <div class="form-group mb-3">
+                        <!-- Archivo -->
+                        <div class="form-group mb-3 container-input">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="file" name="file" required>
-                            <label class="custom-file-label" for="file">Choose file</label>
-                            <div class="invalid-feedback">Please choose a file.</div>
-                          </div>
+                          <input type="file" class="custom-file-input" id="file" name="file" required>
+                          <label class="custom-file-label" for="file">Choose file</label>
                         </div>
+                        <script>
+                          // Obtener el campo de carga de archivos
+                          const inputFile = document.getElementById('file');
+                          
+                          // Escuchar el evento de cambio en el campo de carga de archivos
+                          inputFile.addEventListener('change', function() {
+                            // Obtener el nombre del archivo seleccionado
+                            const fileName = this.files[0].name;
+                            // Actualizar el texto de la etiqueta del campo de carga de archivos para mostrar el nombre del archivo seleccionado
+                            const label = this.nextElementSibling;
+                            label.innerText = fileName;
+                          });
+                          </script>
+                          <div class="invalid-feedback">Please choose a file.</div>
+                        </div>
+                        <!-- Captcha -->
                         <div class="recaptcha-container">
                           <div class="g-recaptcha" data-sitekey="6Ld01zIpAAAAAH6IZvFIE-yiPMRSnHBvDsnJkxtJ"></div>
                         </div>
+                        <!-- Botón de enviar -->
                         <button type="submit" id="btn6" name="dbforms_contact_us_bu_submit" class="btn btn-primary btn-block rounded-pill">Send</button>
                       </form>
                     </div>
@@ -387,6 +417,8 @@
   ================================================== -->
 
   <!-- initialize jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="plugins/jQuery/jquery.min.js"></script>
   <!-- Bootstrap jQuery -->
   <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
