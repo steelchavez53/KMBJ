@@ -154,52 +154,49 @@
 
         <div class="nav-search">
           <span id="search"><i class="fa fa-search"></i></span>
-
-        </div><!-- Search end -->
-
-       <div class="search-block" style="display: none;">
-  <label for="search-field" class="w-100 mb-0">
-    <input type="text" class="form-control" id="searchInput" placeholder="Type what you want and enter">
-    <ul id="searchResults"></ul>
-  </label>
-  <span class="search-close">&times;</span>
-</div><!-- Site search end -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.trim().toLowerCase();
-      const allWords = document.body.innerText.split(/\s+/);
-      const filteredWords = allWords.filter(word => word.toLowerCase().includes(searchTerm));
-      const uniqueWords = [...new Set(filteredWords)];
-
-      searchResults.innerHTML = '';
-
-      uniqueWords.forEach(word => {
-        const listItem = document.createElement('li');
-        listItem.textContent = word;
-        searchResults.appendChild(listItem);
-      });
-    });
-
-    // Add click event listener to the document body
-    document.body.addEventListener('click', function(event) {
-      // Check if the clicked element is an LI element within the search results
-      if (event.target.tagName === 'LI' && event.target.parentNode === searchResults) {
-        const word = event.target.textContent.trim();
-        const elements = document.querySelectorAll(`*:contains(${word}):not(script)`);
-        if (elements.length > 0) {
-          elements.forEach(element => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      </div><!-- Search end -->
+      
+      <div class="search-block" style="display: none;">
+          <label for="search-field" class="w-100 mb-0">
+              <input type="text" class="form-control" id="searchInput" placeholder="Type what you want and enter">
+              <ul id="searchResults"></ul>
+          </label>
+          <span class="search-close">&times;</span>
+      </div><!-- Site search end -->
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('#searchInput').on('input', function() {
+                  const searchTerm = $(this).val().trim().toLowerCase();
+                  if (searchTerm.length > 0) {
+                      $.ajax({
+                          url: '/search', // La URL de tu endpoint de búsqueda
+                          method: 'GET',
+                          data: { term: searchTerm },
+                          success: function(data) {
+                              displaySearchResults(data.results);
+                          },
+                          error: function(xhr, status, error) {
+                              console.error('Error fetching search results:', error);
+                          }
+                      });
+                  } else {
+                      $('#searchResults').empty();
+                  }
+              });
+      
+              function displaySearchResults(results) {
+                  const searchResults = $('#searchResults');
+                  searchResults.empty();
+                  $.each(results, function(index, result) {
+                      const listItem = $('<li>').text(result.title); // Suponiendo que los resultados tienen un campo 'title'
+                      searchResults.append(listItem);
+                  });
+              }
           });
-        }
-      }
-    });
-  });
-</script>
+      </script>
+      
 
 
         
@@ -533,11 +530,10 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
             <h3 class="widget-title">Services</h3>
             <ul class="list-arrow">
-              <li><a href="service-single.html">Pre-Construction</a></li>
-              <li><a href="service-single.html">General Contracting</a></li>
-              <li><a href="service-single.html">Construction Management</a></li>
-              <li><a href="service-single.html">Design and Build</a></li>
-              <li><a href="service-single.html">Self-Perform Construction</a></li>
+              <li><a href="service-single.html">Demolitions</a></li>
+              <li><a href="service-single.html">Remodeling</a></li>
+              <li><a href="service-single.html">Structural-steel</a></li>
+        
             </ul>
           </div><!-- Col end -->
         </div><!-- Row end -->
@@ -575,6 +571,7 @@
 
   <!-- Javascript Files
   ================================================== -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- initialize jQuery Library -->
   <script src="plugins/jQuery/jquery.min.js"></script>
