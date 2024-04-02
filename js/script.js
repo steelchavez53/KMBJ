@@ -266,6 +266,27 @@ jQuery(function ($) {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el fragmento de la URL
+    var fragment = window.location.hash.substr(1);
+
+    // Ocultar todos los contenidos por defecto
+    document.querySelectorAll(".content-inner-page").forEach(function(content) {
+        content.classList.remove("active");
+    });
+
+    // Mostrar el contenido correspondiente si hay un fragmento en la URL
+    if (fragment) {
+        var targetElement = document.getElementById(fragment);
+        if (targetElement) {
+            // Ocultar todos los contenidos activos
+            document.querySelectorAll(".content-inner-page.active").forEach(function(content) {
+                content.classList.remove("active");
+            });
+
+            targetElement.classList.add("active"); // Mostrar el contenido correspondiente
+        }
+    }
+
     // Obtener todos los enlaces de la barra de menú
     var links = document.querySelectorAll(".service-menu a");
 
@@ -287,8 +308,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Mostrar el contenido correspondiente
             if (targetElement) {
-                targetElement.classList.add("active"); // Agregar la clase "active"
+                targetElement.classList.add("active"); // Agregar la clase "active" al elemento objetivo
+
+                // Actualizar la URL con el fragmento deseado
+                history.pushState(null, null, this.getAttribute("href"));
             }
         });
     });
 });
+
