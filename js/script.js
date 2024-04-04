@@ -273,7 +273,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".content-inner-page").forEach(function(content) {
         content.classList.remove("active");
     });
-
+  // Mostrar la sección de "remodeling" como activa por defecto
+  var defaultSection = document.getElementById("building-remodels");
+  defaultSection.classList.add("active");
     // Mostrar el contenido correspondiente si hay un fragmento en la URL
     if (fragment) {
         var targetElement = document.getElementById(fragment);
