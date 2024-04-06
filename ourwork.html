@@ -146,20 +146,87 @@
           <span id="search"><i class="fa fa-search"></i></span>
         </div><!-- Search end -->
 
-        <div class="search-block" style="display: none;">
+        <div class="search-block">
           <label for="search-field" class="w-100 mb-0">
-            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
+              <input type="text" class="form-control" id="searchInput" placeholder="Type what you want and enter" autocomplete="off">
+              <ul id="search-results-list">
+            </ul>
           </label>
           <span class="search-close">&times;</span>
-        </div><!-- Site search end -->
-    </div>
+      </div><!-- Site search end -->
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Capturar el clic en los elementos de la lista de resultados
+            document.getElementById('search-results-list').addEventListener('click', function(event) {
+                if (event.target.tagName === 'LI') {
+                    var pageUrl = event.target.getAttribute('data-url');
+                    window.location.href = pageUrl; // Redireccionar a la página correspondiente
+                }
+            });
+    
+            // Función para buscar en todas las páginas
+            function search(term) {
+                // Aquí debes implementar la lógica para buscar el término en todas las páginas de tu sitio web
+                // Puedes usar AJAX para cargar el contenido de las páginas y buscar el término dentro de ese contenido
+                // Por simplicidad, vamos a simular una búsqueda en un array de strings
+                var pagesContent = [
+                    { title: "Home", url: "home.html" },
+                    { title: "About", url: "about.html" },
+                    { title: "Contact", url: "contact.html" },
+                    { title: "Services", url: "services.html" },
+                    { title: "Our Work", url: "ourwork.html" },
+                    { title: "Demolitions", url: "service-single.html#home-construction" },
+                    { title: "Remodeling", url: "service-single.html#building-remodels" },
+                    { title: "Structural Steel", url: "service-single.html#structural-steel" }
+                    // Agrega más páginas aquí si es necesario
+                ];
+    
+                var results = pagesContent.filter(function(page) {
+                    return page.title.toLowerCase().includes(term.toLowerCase());
+                });
+    
+                return results;
+            }
+    
+            // Función para mostrar los resultados de la búsqueda
+            function displayResults(results) {
+                var resultsList = document.getElementById('search-results-list');
+                resultsList.innerHTML = '';
+    
+                if (results.length === 0) {
+                    resultsList.innerHTML = '<li>No results found</li>';
+                } else {
+                    results.forEach(function(result) {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = result.title;
+                        listItem.setAttribute('data-url', result.url); // Guardar la URL como atributo personalizado
+                        resultsList.appendChild(listItem);
+                    });
+                }
+            }
+    
+            // Evento de cambio en el campo de búsqueda
+            document.getElementById('searchInput').addEventListener('input', function() {
+                var term = this.value.trim();
+    
+                if (term !== '') {
+                    var searchResults = search(term);
+                    displayResults(searchResults);
+                } else {
+                    // Limpiar los resultados si el campo de búsqueda está vacío
+                    document.getElementById('search-results-list').innerHTML = '';
+                }
+            });
+        });
+    </script>
     <!--/ Container end -->
 
   </div>
   <!--/ Navigation end -->
 </header>
 <!--/ Header end -->
-<div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
+<div id="banner-area" class="banner-area">
   <div class="banner-text">
     <div class="container">
         <div class="row">

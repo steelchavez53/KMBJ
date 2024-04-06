@@ -1380,6 +1380,20 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 /* Slider
 ================================================== */
 /*-- Main slide --*/
+.imagen1 {
+  background-image: url(../images/slider-main/imagen3.jpeg);
+}
+
+.imagen2 {
+  background-image: url(../images/slider-main/imagen2.jpeg);
+}
+
+.imagen3 {
+  background-image: url(../images/slider-main/imagen1.jpeg);
+}
+
+/* Otros estilos necesarios */
+
 .banner-carousel .banner-carousel-item {
   height: 700px;
   color: #fff;
@@ -2758,6 +2772,7 @@ img.testimonial-thumb {
   color: #fff;
   background-position: 50% 50%;
   background-size: cover;
+  background-image:url(../images/banner/banner1.jpg)
 }
 
 .banner-title {
