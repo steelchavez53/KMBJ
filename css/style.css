@@ -539,7 +539,6 @@ blockquote.text-right:before {
 }
 
 blockquote h1:before {
-  font-family: "Font Awesome 5 Free";
   position: absolute;
   font-size: 28px;
   color: #E5E5E5;
