@@ -524,18 +524,13 @@ blockquote.text-center {
   padding-top: 50px;
 }
 
-blockquote.text-center:before {
-  left: 50%;
-  top: 10px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
 
 blockquote.text-right {
   border-right: 3px solid #ffb600;
   padding-right: 40px;
   border-left: 0;
   padding-left: 25px;
+  
 }
 
 blockquote.text-right:before {
@@ -543,17 +538,15 @@ blockquote.text-right:before {
   right: 5px;
 }
 
-blockquote:before {
-  content: "\f10d";
+blockquote h1:before {
   font-family: "Font Awesome 5 Free";
   position: absolute;
   font-size: 28px;
   color: #E5E5E5;
-  top: 5px;
-  left: 5px;
-  font-weight: 700;
-  z-index: 0;
+  left: 85px;
 }
+
+
 
 blockquote p {
   font-size: 14px;
