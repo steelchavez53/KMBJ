@@ -34,6 +34,27 @@
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
 
+    <!-- Datos estructurdo JSON-LD
+================================================== -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "ContactPage",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "(+9) 847-291-4353",
+        "contactType": "customer service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9051 Constra Incorporate",
+        "addressLocality": "USA",
+        "postalCode": "XXXXX" // Código postal real aquí
+      },
+      "email": "office@Constra.com",
+      "name": "Constra"
+    }
+    </script>
 </head>
 <body>
   <div class="body-inner">
@@ -382,6 +403,57 @@
                         <!-- Botón de enviar -->
                         <button type="submit" id="btn6" name="dbforms_contact_us_bu_submit" class="btn btn-primary btn-block rounded-pill">Send</button>
                       </form>
+                      <script>
+                        document.getElementById("script").addEventListener("submit", function(e) {
+                            e.preventDefault();
+                        
+                         var btnEnviar = document.getElementById("btn6");
+                            btnEnviar.textContent = "Sent..."; 
+                            btnEnviar.disabled = true; 
+                        
+                            var formData = new FormData(this);
+                        
+                            fetch('procesar_formulario.php', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                        
+                                if (data.success) {
+                                    Swal.fire(
+                                        '¡Sent!',
+                                        'Your message has been sent successfully.',
+                                        'success'
+                                    ).then(() => {
+                                       
+                                        document.getElementById("script").reset();
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        'Error',
+                                        'There was a problem sending your message: ' + data.error,
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            
+                                Swal.fire(
+                                    'Error',
+                                    'Please complete the recaptcha',
+                                    'error'
+                                );
+                            })
+                                .finally(() => {
+                                grecaptcha.reset(); 
+                                btnEnviar.textContent = "send"; 
+                                btnEnviar.disabled = false; 
+                            });
+                        });
+                        
+                        </script>
                     </div>
                   </div>
                 </div>
@@ -488,6 +560,8 @@
   <script src="plugins/colorbox/jquery.colorbox.js"></script>
   <!-- shuffle -->
   <script src="plugins/shuffle/shuffle.min.js" defer></script>
+  <!--sweetalert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- Google Map API Key-->

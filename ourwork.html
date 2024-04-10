@@ -33,6 +33,32 @@
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
 
+  
+  <!-- Datos estructurados JSON-LD 
+================================================== -->
+  <script type="application/json" id="project-data">
+    {
+      "projects": [
+        {
+          "title": "Proyecto 1",
+          "image": "images/projects/project1.jpg",
+          "description": "Descripción del Proyecto 1."
+        },
+        {
+          "title": "Proyecto 2",
+          "image": "images/projects/project2.jpg",
+          "description": "Descripción del Proyecto 2."
+        },
+        {
+          "title": "Proyecto 3",
+          "image": "images/projects/project3.jpg",
+          "description": "Descripción del Proyecto 3."
+        }
+        // Agrega más proyectos según sea necesario
+      ]
+    }
+  </script>
+
 </head>
 <body>
   <div class="body-inner">
@@ -445,6 +471,41 @@
   <script src="js/script.js"></script>
 
   </div><!-- Body inner end -->
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Obtener el elemento script que contiene los datos del proyecto
+      var projectData = document.getElementById('project-data');
+
+      // Convertir el contenido JSON del elemento script a un objeto JavaScript
+      var projects = JSON.parse(projectData.textContent);
+
+      // Obtener el contenedor donde se mostrarán los proyectos
+      var portfolioContainer = document.querySelector('.portfolio-container');
+
+      // Generar el HTML para cada proyecto y agregarlo al contenedor
+      projects.projects.forEach(function(project) {
+        var projectHTML = `
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-img rounded overflow-hidden">
+              <img class="img-fluid" src="${project.image}" alt="${project.title}">
+              <div class="portfolio-btn">
+                <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="${project.image}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="pt-3">
+              <p class="text-primary mb-0">${project.title}</p>
+              <hr class="text-primary w-25 my-2">
+              <h5 class="lh-base">${project.description}</h5>
+            </div>
+          </div>
+        `;
+
+        portfolioContainer.innerHTML += projectHTML;
+      });
+    });
+  </script>
   </body>
 
   </html>
