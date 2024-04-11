@@ -363,7 +363,7 @@ a:focus {
 }
 
 .bg-overlay:after {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 46, 91, 0.8);
   z-index: 0;
   position: absolute;
   content: '';
@@ -805,7 +805,7 @@ ul.top-info li p.info-text {
 
 .header-one,
 .header-one .site-navigation {
-  background: #23282d;
+  background: #004c89;
 }
 
 .header-one .navbar-collapse {
