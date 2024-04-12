@@ -65,9 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->setFrom('yefferson@kmbjironworks.com', 'kmbjironworks'); 
         $mail->addAddress('sales@kmbjironworks.com'); 
         $mail->addCC($email); 
-        $mail->addCC('estimatingdepartment@kmbj.info');
-        $mail->addCC('ulises@kmbj.info');
-        $mail->addCC('office@kmbj.info');
     
 
         // Attach the file
