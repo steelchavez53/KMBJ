@@ -158,6 +158,7 @@ p {
   -webkit-font-smoothing: antialiased !important;
   line-height: 26px;
   font-size: 15px;
+  text-align: justify;
 }
 
 h1,
@@ -177,12 +178,12 @@ h1 {
   font-size: 36px;
   line-height: 48px;
 }
-
-h2 {
+ h2 {
   font-size: 28px;
   line-height: 36px;
   text-transform: uppercase;
   letter-spacing: -1px;
+  text-align: start;
 }
 
 h3 {
