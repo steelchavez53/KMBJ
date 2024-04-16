@@ -59,7 +59,7 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title">Call Us</p>
+                          <p class="info-box-title text-center">Call Us</p>
                           <p class="info-box-subtitle">(323) 637-8916</p>
                       </div>
                     </div>
@@ -67,15 +67,24 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title">Email Us</p>
+                          <p class="info-box-title text-center">Email Us</p>
                           <p class="info-box-subtitle">contact@kmbjgenerlcontractor.com</p>
                       </div>
                     </div>
                   </li>
+                  
                  
                   <li class="header-get-a-quote">
                     <a class="btn btn-primary" href="contact.html">Get A Quote</a>
                   </li>
+                  <li class="header-get-a-quote">
+                    <a title="Facebook" href="#" class="mr-3">
+                        <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                    </a>
+                    <a title="Twitter" href="#" class="mr-3">
+                        <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                    </a>
+                </li>
                 </ul><!-- Ul end -->
             </div><!-- header right end -->
           </div><!-- logo area end -->
@@ -85,18 +94,7 @@
     <div id="top-bar" class="top-bar">
       <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-4 top-social text-c text-md-right">
-              <ul class="list-unstyled">
-                  <li>
-                    <a title="Facebook" href="#">
-                        <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                    </a>
-                    <a title="Twitter" href="#">
-                        <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                    </a>
-                  </li>
-              </ul>
-            </div>
+            
             <!--/ Top social end -->
         </div>
         <!--/ Content row end -->
@@ -140,54 +138,6 @@
         </div>
         <!--/ Row end -->
 
-        <div class="nav-search">
-          <span id="search"><i class="fa fa-search"></i></span>
-
-        </div><!-- Search end -->
-
-       <div class="search-block" style="display: none;">
-  <label for="search-field" class="w-100 mb-0">
-    <input type="text" class="form-control" id="searchInput" placeholder="Type what you want and enter">
-    <ul id="searchResults"></ul>
-  </label>
-  <span class="search-close">&times;</span>
-</div><!-- Site search end -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.trim().toLowerCase();
-      const allWords = document.body.innerText.split(/\s+/);
-      const filteredWords = allWords.filter(word => word.toLowerCase().includes(searchTerm));
-      const uniqueWords = [...new Set(filteredWords)];
-
-      searchResults.innerHTML = '';
-
-      uniqueWords.forEach(word => {
-        const listItem = document.createElement('li');
-        listItem.textContent = word;
-        searchResults.appendChild(listItem);
-      });
-    });
-
-    // Add click event listener to the document body
-    document.body.addEventListener('click', function(event) {
-      // Check if the clicked element is an LI element within the search results
-      if (event.target.tagName === 'LI' && event.target.parentNode === searchResults) {
-        const word = event.target.textContent.trim();
-        const elements = document.querySelectorAll(`*:contains(${word}):not(script)`);
-        if (elements.length > 0) {
-          elements.forEach(element => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        }
-      }
-    });
-  });
-</script>
 
 
         
@@ -208,8 +158,8 @@
 
       <div class="col-12">
         <div class="error-page text-center">
-          <div class="error-code">
-            <h2><strong>404</strong></h2>
+          <div class="error-code ">
+            <h2 class="text-center"><strong>404</strong></h2>
           </div>
           <div class="error-message">
             <h3>Page Not Found!</h3>
@@ -253,19 +203,20 @@
         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
           <h3 class="widget-title">business Hours</h3>
           <div class="working-hours">
-            Pacific Time Zone , Contáctanos si tienes una emergencia, con nuestro
-            Línea directa y formulario de contacto.
+            <br>
+            Pacific Time Zone , Contact us if you have an emergency, with our Hotline and contact form.
             <br><br> Monday - Friday: <span class="text-right">7:00 - 17:00 </span>
             <br> Saturday: <span class="text-right">7:00 - 13:00</span>
           </div>
         </div><!-- Col end -->
+        <br>
 
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
           <h3 class="widget-title">Services</h3>
           <ul class="list-arrow">
-            <li><a href="service-single.html#home-construction">Demolitions</a></li>
-            <li><a href="service-single.html#building-remodels">Remodeling</a></li>
-            <li><a href="service-single.html#structural-steel">Structural-steel</a></li>
+            <li><a href="services.html">Demolitions</a></li>
+            <li><a href="services.html">Remodeling</a></li>
+            <li><a href="services.html">Structural-steel</a></li>
       
           </ul>
         </div><!-- Col end -->
