@@ -2785,11 +2785,11 @@ img.testimonial-thumb {
 /*-- Banner --*/
 .banner-area {
   position: relative;
-  min-height: 300px;
+  min-height: 400px;
   color: #fff;
-  background-position: 50% 50%;
+  background-position: 60% 50%;
   background-size: cover;
-  background-image:url(../images/banner/banner1.jpg)
+  background-image:url(../images/banner/banner4.jpeg)
 }
 
 .banner-title {
@@ -2803,6 +2803,7 @@ img.testimonial-thumb {
   .banner-title {
     font-size: 48px;
   }
+ 
 }
 
 @media (max-width: 575px) {
@@ -3148,10 +3149,16 @@ img.testimonial-thumb {
 
 /* Contact Us
 ================================================== */
-.map {
-  height: 450px;
-  z-index: 1;
+.google-map {
+  height: 100%;
+  display: flex;
 }
+
+.map {
+  flex: 1;
+  height: 100%;
+}
+
 
 .contact-info-box {
   margin-top: 20px;

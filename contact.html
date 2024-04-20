@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <!-- Datos estructurdo JSON-LD
 ================================================== -->
@@ -183,7 +184,7 @@
               </span>
               <div class="ts-service-box-content">
                 <h4>Visit Our Office</h4>
-                <p class="text-center">9051 Constra Incorporate, USA</p>
+                <p class="text-center">Address: 10108 South Main St. Los Angeles, CA 90003</p>
               </div>
             </div>
           </div><!-- Col 1 end -->
@@ -380,7 +381,8 @@
       </div>
   <!-- Mapa -->
   <div class="google-map">
-    <div id="map" class="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="images/marker.png" data-marker-name="Constra"></div>
+    <div id="map" class="map" data-latitude="33.94432067871094" data-longitude="-118.27374267578125" data-marker="images/marker.png" data-marker-name="Constra"></div>
+    <div id="pano" class="map"></div>
   </div>
     </div><!-- Content row -->
     
@@ -464,8 +466,6 @@
     </div><!-- Container end -->
   </div><!-- Copyright end -->
 </footer><!-- Footer end -->
-
-
   <!-- Javascript Files
   ================================================== -->
 
@@ -482,14 +482,18 @@
   <script src="plugins/colorbox/jquery.colorbox.js"></script>
   <!-- shuffle -->
   <script src="plugins/shuffle/shuffle.min.js" defer></script>
+    <!-- google map  -->
+    <script src="plugins/google-map/map.js" defer></script>
   <!--sweetalert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialize&v=weekly"defer></script>
+ 
   <!-- Google Map Plugin-->
-  <script src="plugins/google-map/map.js" defer></script>
+
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
