@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <!-- Datos estructurdo JSON-LD
@@ -380,10 +381,18 @@
   </div><!-- Container end -->
       </div>
   <!-- Mapa -->
-  <div class="google-map">
-    <div id="map" class="map" data-latitude="33.94432067871094" data-longitude="-118.27374267578125" data-marker="images/marker.png" data-marker-name="Constra"></div>
-    <div id="pano" class="map"></div>
+  <div class="containers">
+    <div class="row">
+      <div class="col-md-6 pr-md-0">
+        
+        <div id="map" class="map" data-latitude="33.94432067871094" data-longitude="-118.27374267578125" data-marker="images/marker.png" data-marker-name="Constra"></div>
+      </div>
+      <div class="col-md-6 pl-md-0">
+         <div id="pano" class="map"></div>
+      </div>
+    </div>
   </div>
+  
     </div><!-- Content row -->
     
   </div><!-- Conatiner end -->
@@ -466,6 +475,7 @@
     </div><!-- Container end -->
   </div><!-- Copyright end -->
 </footer><!-- Footer end -->
+
   <!-- Javascript Files
   ================================================== -->
 
@@ -481,17 +491,19 @@
   <!-- Color box -->
   <script src="plugins/colorbox/jquery.colorbox.js"></script>
   <!-- shuffle -->
-  <script src="plugins/shuffle/shuffle.min.js" defer></script>
+
     <!-- google map  -->
-    <script src="plugins/google-map/map.js" defer></script>
+  <script src="plugins/google-map/map.js"></script>
   <!--sweetalert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- Google Map API Key-->
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialize&v=weekly"defer></script>
- 
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialize&v=weekly"
+  defer
+></script>
   <!-- Google Map Plugin-->
 
 

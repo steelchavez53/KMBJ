@@ -1,8 +1,3 @@
-/**
- * @license
- * Copyright 2019 Google LLC. All Rights Reserved.
- * SPDX-License-Identifier: Apache-2.0
- */
 function initialize() {
   const mainStreet = { lat: parseFloat(document.getElementById("map").getAttribute("data-latitude")), lng: parseFloat(document.getElementById("map").getAttribute("data-longitude")) };
 
