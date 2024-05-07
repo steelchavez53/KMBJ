@@ -312,7 +312,7 @@
                         </div>
                         <!-- Captcha -->
                         <div class="recaptcha-container d-flex justify-content-center">
-                          <div class="g-recaptcha" data-sitekey="6Ld01zIpAAAAAH6IZvFIE-yiPMRSnHBvDsnJkxtJ"></div>
+                          <div class="g-recaptcha" data-sitekey="6Ldc988pAAAAAPky3oh-zJQA-bgWavNJx9yxHqq4"></div>
                         </div>
                         <!-- Botón de enviar -->
                         <button type="submit" id="btn6" name="dbforms_contact_us_bu_submit" class="btn btn-primary btn-block rounded-pill">Send</button>
@@ -321,7 +321,7 @@
                         document.getElementById("script").addEventListener("submit", function(e) {
                             e.preventDefault();
                         
-                         var btnEnviar = document.getElementById("btn6");
+                            var btnEnviar = document.getElementById("btn6");
                             btnEnviar.textContent = "Sent..."; 
                             btnEnviar.disabled = true; 
                         
@@ -340,7 +340,7 @@
                                         'Your message has been sent successfully.',
                                         'success'
                                     ).then(() => {
-                                       
+                                        // Resetear el formulario después de enviarlo con éxito
                                         document.getElementById("script").reset();
                                     });
                                 } else {
@@ -353,21 +353,21 @@
                             })
                             .catch(error => {
                                 console.error('Error:', error);
-                            
+                        
                                 Swal.fire(
                                     'Error',
                                     'Please complete the recaptcha',
                                     'error'
                                 );
                             })
-                                .finally(() => {
+                            .finally(() => {
                                 grecaptcha.reset(); 
                                 btnEnviar.textContent = "send"; 
                                 btnEnviar.disabled = false; 
                             });
                         });
-                        
                         </script>
+                        
                     </div>
                   </div>
                 </div>
@@ -481,8 +481,10 @@
   ================================================== -->
 
   <!-- initialize jQuery Library -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <script src="plugins/jQuery/jquery.min.js"></script>
   <!-- Bootstrap jQuery -->
   <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
@@ -500,10 +502,8 @@
 
 
   <!-- Google Map API Key-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzHdBzA2AmGEByIial7FecbSwrW7U7o1E&callback=initialize"></script>
 
-  <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialize&v=weekly"
-></script>
   <!-- Google Map Plugin-->
 
 

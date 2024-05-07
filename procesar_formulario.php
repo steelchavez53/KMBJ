@@ -7,7 +7,7 @@ require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       $recaptcha_secret_key = "6Ld01zIpAAAAAKCHTW995O4gQJz74HKAj5uklnWB"; 
+       $recaptcha_secret_key = "6Ldc988pAAAAAEKGJE6USqR66KDlBBdtgMm1eUPu"; 
                                 
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
@@ -54,16 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host = 'mail.kmbjironworks.com'; 
+        $mail->Host = 'mail.kmbjgeneralcontractor.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'sales@kmbjironworks.com'; 
-        $mail->Password = 'F,hKNNy^4h6k'; 
+        $mail->Username = 'sales@kmbjgeneralcontractor.com'; 
+        $mail->Password = 'h]Z@,j2%kSOd'; 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         //Recipients
-        $mail->setFrom('yefferson@kmbjironworks.com', 'kmbjironworks'); 
-        $mail->addAddress('sales@kmbjironworks.com'); 
+        $mail->setFrom('send@kmbjgeneralcontractor.com', 'kmbjironworks'); 
+        $mail->addAddress('sales@kmbjgeneralcontractor.com'); 
         $mail->addCC($email); 
     
 

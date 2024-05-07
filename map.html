@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Example</title>
+  <style>
+    .map {
+      height: 450px;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="containers">
+    <div class="row">
+      <div class="col-md-6 pr-md-0">
+        <div id="map" class="map" data-latitude="33.94432067871094" data-longitude="-118.27374267578125" data-marker="images/marker.png" data-marker-name="Constra"></div>
+      </div>
+      <div class="col-md-6 pl-md-0">
+        <div id="pano" class="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Map Plugin-->
+  <script>
+    function initialize() {
+      const mainStreet = {
+        lat: parseFloat(document.getElementById("map").getAttribute("data-latitude")),
+        lng: parseFloat(document.getElementById("map").getAttribute("data-longitude"))
+      };
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: mainStreet,
+        zoom: 14,
+      });
+
+      const panorama = new google.maps.StreetViewPanorama(
+        document.getElementById("pano"), {
+          position: mainStreet,
+          pov: {
+            heading: 34,
+            pitch: 10,
+          },
+        }
+      );
+
+      map.setStreetView(panorama);
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzHdBzA2AmGEByIial7FecbSwrW7U7o1E&callback=initialize"></script>
+
+</body>
+
+</html>

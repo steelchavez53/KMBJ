@@ -1,5 +1,8 @@
 function initialize() {
-  const mainStreet = { lat: parseFloat(document.getElementById("map").getAttribute("data-latitude")), lng: parseFloat(document.getElementById("map").getAttribute("data-longitude")) };
+  const mainStreet = {
+    lat: parseFloat(document.getElementById("map").getAttribute("data-latitude")),
+    lng: parseFloat(document.getElementById("map").getAttribute("data-longitude"))
+  };
 
   const map = new google.maps.Map(document.getElementById("map"), {
     center: mainStreet,
@@ -7,8 +10,7 @@ function initialize() {
   });
 
   const panorama = new google.maps.StreetViewPanorama(
-    document.getElementById("pano"),
-    {
+    document.getElementById("pano"), {
       position: mainStreet,
       pov: {
         heading: 34,
@@ -19,5 +21,3 @@ function initialize() {
 
   map.setStreetView(panorama);
 }
-
-window.initialize = initialize;
