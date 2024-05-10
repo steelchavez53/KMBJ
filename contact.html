@@ -97,7 +97,18 @@
                     <div class="info-box">
                       <div class="info-box-content">
                           <p class="info-box-title text-center" >Email Us</p>
-                          <p class="info-box-subtitle"><a href="mailto:contact@kmbjgenerlcontractor.com">contact@kmbjgenerlcontractor.com</a></p>
+                          <p class="info-box-subtitle">
+                            <script type="text/javascript">
+                                var user = "contact";
+                                var domain = "kmbjgenerlcontractor.com";
+                                var mailtoLink = 'mailto:' + user + '@' + domain;
+                                document.write('<a href="' + mailtoLink + '">' + user + '@' + domain + '</a>');
+                            </script>
+                            <noscript>
+                                <!-- Display email address if JavaScript is disabled -->
+                                <a href="mailto:contact@kmbjgenerlcontractor.com">contact@kmbjgenerlcontractor.com</a>
+                            </noscript>
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -202,7 +213,22 @@
               </span>
               <div class="ts-service-box-content">
                 <h4>Email Us</h4>
-                <p class="text-center">contact@kmbjgenerlcontractor.com</p>
+                <p class="text-center">
+                  <script type="text/javascript">
+                      var user = "contact";
+                      var domain = "kmbjgenerlcontractor.com";
+                      var emailAddress = user + '@' + domain;
+                      var hiddenSpan = document.createElement("span");
+                      hiddenSpan.style.display = "none";
+                      hiddenSpan.textContent = "null";
+                      document.querySelector("p.text-center").appendChild(hiddenSpan);
+                      document.write('<a href="mailto:' + emailAddress + '">' + emailAddress + '</a>');
+                  </script>
+                  <noscript>
+                      <!-- Display email address if JavaScript is disabled -->
+                      <a href="mailto:contact@kmbjgenerlcontractor.com">contact@kmbjgenerlcontractor.com</a>
+                  </noscript>
+              </p>
               </div>
             </div>
           </div><!-- Col 2 end -->
@@ -417,9 +443,9 @@
               <span> Phone: <a href="(323) 637-8916">(323) 637-8916</a></span> 
              </li>
       
-            <li>
-             <span> Email: <a href="contact@kmbjgenerlcontractor.com">contact@kmbjgenerlcontractor.com</a></span> 
-            </li>
+             <li>
+              <span> Email: <a href="javascript:void(0);" onclick="var user='contact'; var domain='kmbjgenerlcontractor.com'; var subject=''; var body=''; window.location='mailto:'+user+'@'+domain+'?subject='+subject+'&body='+body;">contact@kmbjgenerlcontractor.com</a></span>
+          </li>
           </p>
           <div class="footer-social">
             <ul>
