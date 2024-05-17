@@ -69,21 +69,40 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title text-center" >Email Us</p>
+                          <p class="info-box-title text-center">Email Us</p>
                           <p class="info-box-subtitle">
-                            <script type="text/javascript">
-                                var user = "contact";
-                                var domain = "kmbjgenerlcontractor.com";
-                                var mailtoLink = 'mailto:' + user + '@' + domain;
-                                document.write('<a href="' + mailtoLink + '">' + user + '@' + domain + '</a>');
-                            </script>
-                            <noscript>
-                                <!-- Display email address if JavaScript is disabled -->
-                                <a href="mailto:contact@kmbjgenerlcontractor.com">contact@kmbjgenerlcontractor.com</a>
-                            </noscript>
-                        </p>
+                              <script type="text/javascript">
+                                  // Función para obfuscar la dirección de correo electrónico
+                                  function obfuscateEmail(user, domain) {
+                                      var obfuscated = '';
+                                      for (var i = 0; i < user.length; i++) {
+                                          obfuscated += '&#' + user.charCodeAt(i) + ';';
+                                      }
+                                      obfuscated += '&#64;';
+                                      for (var j = 0; j < domain.length; j++) {
+                                          obfuscated += '&#' + domain.charCodeAt(j) + ';';
+                                      }
+                                      return obfuscated;
+                                  }
+                  
+                                  // Definir usuario y dominio
+                                  var user = "contact";
+                                  var domain = "kmbjgenerlcontractor.com";
+                  
+                                  // Generar la dirección de correo electrónico obfuscada
+                                  var obfuscatedEmail = obfuscateEmail(user, domain);
+                  
+                                  // Escribir la dirección de correo electrónico en el documento
+                                  document.write('<a href="mailto:' + obfuscatedEmail + '">' + obfuscatedEmail + '</a>');
+                              </script>
+                              <noscript>
+                                  <!-- Display email address if JavaScript is disabled -->
+                                  <a href="mailto:contact@kmbjgenerlcontractor.com">contact&#64;kmbjgenerlcontractor.com</a>
+                              </noscript>
+                          </p>
                       </div>
-                    </div>
+                  </div>
+                  
                   </li>
                   
                  

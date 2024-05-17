@@ -1,6 +1,18 @@
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ErrorDocument 404 /error.html
 
+#habilitar el modulo de encabezados(headers)
+<IfModule mod_headers.c>
+    Header set Cache-Control "max-age=31536000, public"
+</IfModule>
+
+#Configurar encabezados de cache para Css,JacaScript y imagenes
+
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+
 RewriteEngine On
 
 # Redirigir todas las solicitudes a la versión sin "www"
