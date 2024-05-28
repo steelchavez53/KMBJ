@@ -1377,15 +1377,15 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 ================================================== */
 /*-- Main slide --*/
 .imagen1 {
-  background-image: url(../images/slider-main/imagen3.jpeg);
+  background-image: url(../images/slider-main/4.jpg);
 }
 
 .imagen2 {
-  background-image: url(../images/slider-main/imagen2.jpeg);
+  background-image: url(../images/slider-main/2.jpg);
 }
 
 .imagen3 {
-  background-image: url(../images/slider-main/imagen1.jpeg);
+  background-image: url(../images/slider-main/5.jpg);
 }
 
 /* Otros estilos necesarios */
@@ -1400,7 +1400,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+ background-color: rgba(0, 0, 0,0.1); 
 }
 
 .banner-carousel-item .slider-content {
